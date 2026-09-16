@@ -1,0 +1,19 @@
+[project]
+name = "liqbot"
+version = "0.2.0"
+description = "Paper-trading bot for clustered liquidity, forced orders, and SMC structure"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.26",
+  "PyYAML>=6.0",
+  "requests>=2.31",
+]
+
+[project.scripts]
+liqbot = "liqbot.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
