@@ -1,0 +1,41 @@
+# Copy to config.yaml and edit. Never commit API secrets.
+symbol: BTCUSDT
+timeframe: 1h
+lookback: 500
+exchange: binance
+
+# Detection tolerances
+swing_left: 2
+swing_right: 2
+equal_level_atr_mult: 0.15   # EQH/EQL cluster width as fraction of ATR
+sweep_close_back: true       # sweep must close back through the level
+fvg_min_atr_mult: 0.05
+ob_body_min_atr_mult: 0.05
+
+# Sessions in UTC (crypto convention)
+sessions:
+  asia:   {start: "00:00", end: "08:00"}
+  london: {start: "08:00", end: "13:00"}
+  newyork: {start: "13:00", end: "21:00"}
+
+# Strategy / confluence
+min_score: 3
+htf_timeframe: 4h
+require_sweep: true
+require_structure_shift: true
+prefer_discount_for_longs: true
+prefer_premium_for_shorts: true
+
+# Risk (paper)
+risk_per_trade_pct: 0.5
+max_open_trades: 1
+max_daily_loss_pct: 2.0
+rr_target: 2.0
+spread_bps: 2
+slippage_bps: 3
+
+# Execution
+mode: paper          # paper | scan | backtest
+starting_equity: 10000
+data_source: binance # binance | csv | synthetic
+csv_path: examples/sample_ohlcv.csv
